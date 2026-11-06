@@ -118,13 +118,14 @@ a:hover { text-decoration: underline; }
 #write li > ul,
 #write li > ol  { margin: 0.15em 0; }
 
-/* --- blockquote -- LaTeX `quote` environment ----------------------------- */
+/* --- blockquote --------------------------------------------------------- */
 #write blockquote {
     margin: 0.8em 1.5em;
-    padding: 0;
+    padding: 0 0 0 1em;
     border: none;
+    border-left: 3px solid var(--soft-rule);
     color: var(--text-color);
-    font-style: normal;
+    font-style: italic;
 }
 #write blockquote p { margin: 0.4em 0; }
 
@@ -133,6 +134,7 @@ code, kbd, samp, pre, .md-fences, tt,
 .CodeMirror, .CodeMirror pre {
     font-family: var(--mono-font);
     font-size: 0.92em;
+    font-style: normal;                        /* keep quoted code upright */
     font-feature-settings: "liga", "calt";       /* Fira Code ligatures */
     -webkit-font-feature-settings: "liga", "calt";
     font-variant-ligatures: contextual;
@@ -156,6 +158,29 @@ code, kbd, samp, pre, .md-fences, tt,
     margin: 0.8em 0;
     line-height: 1.45;
     overflow-x: auto;
+}
+
+/* CodeMirror handles scrolling within live code blocks. Scrolling the outer
+   fence clips Typora's language picker and creates a vertical scrollbar. */
+#write .md-fences {
+    overflow: visible;
+}
+
+/* Keep the editable language picker in the focused block's normal flow,
+   below the code, so it neither needs scrolling nor covers the next paragraph.
+   Typora still controls when the picker and its suggestions are shown. */
+#write .md-fences .code-tooltip {
+    position: static;
+    float: none;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0.4em 0 0 auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted-color);
+    font-family: var(--sans-font);
+    font-style: normal;
 }
 
 /* strip every trace of box styling off the per-line CodeMirror <pre>s */

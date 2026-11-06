@@ -2,6 +2,8 @@
 
 A light [Typora](https://typora.io/) theme that approximates the look of a Pandoc and XeLaTeX PDF set in Libertinus. It uses an A4-inspired text width, LaTeX-style heading sizes, booktabs-style tables, and serif fallbacks for Chinese text.
 
+Blockquotes use italic text with a narrow grey left border; code stays upright. Click inside a code block to edit its language in the footer below the code, without scrolling to reveal the selector.
+
 ## Install
 
 1. Download [`libertinus.css`](libertinus.css) using GitHub’s **Download raw file** button.
