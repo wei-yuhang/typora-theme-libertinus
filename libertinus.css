@@ -1,0 +1,262 @@
+/*
+ * Libertinus — a Typora theme that approximates the look of our
+ * pandoc + xelatex pipeline (Libertinus Serif body, Libertinus Math,
+ * 2.5cm geometry, default article class).
+ *
+ * Install: copy this file (and the `libertinus/` folder if present)
+ * into Typora's theme folder, then pick "Libertinus" from
+ * Themes menu.  On Linux that folder is usually
+ *   ~/.config/Typora/themes/
+ */
+
+:root {
+    /* CJK fallback chain: 思源宋体 / Source Han Serif (a.k.a. Noto Serif CJK).
+       Browsers walk the list per-character, so Libertinus is used for Latin
+       glyphs and the Han fonts only kick in for CJK codepoints. */
+    --cjk-serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "思源宋体", "思源宋体 CN", "SourceHanSerifSC", "SourceHanSerifCN", "STSong", "SimSun";
+    --cjk-sans:  "Source Han Sans SC",  "Noto Sans CJK SC",  "Noto Sans SC",  "思源黑体", "SourceHanSansSC", "Microsoft YaHei", "PingFang SC";
+    --cjk-mono:  "Source Han Mono SC",  "Sarasa Mono SC",    "Noto Sans Mono CJK SC", "思源等宽";
+
+    /* Latin chain: Libertinus Serif → Linux Libertine (predecessor, visually
+       near-identical) → Cambria/Georgia. The CJK chain goes AFTER all of
+       these so Han fonts can't steal Latin glyphs from us. */
+    --body-font: "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "Libertinus Serif Display", Cambria, Georgia, var(--cjk-serif), serif;
+    --math-font: "Libertinus Math", "Libertinus Serif", "Linux Libertine G", "Linux Libertine", Cambria, Georgia, var(--cjk-serif), serif;
+    --sans-font: "Libertinus Sans", "Linux Biolinum G", "Linux Biolinum", "Inter", "Helvetica Neue", Arial, var(--cjk-sans), sans-serif;
+    --mono-font: "Fira Code", "FiraCode Nerd Font", "JetBrains Mono", "Fira Mono", "Libertinus Mono", Menlo, Consolas, var(--cjk-mono), monospace;
+
+    --text-color: #111;
+    --muted-color: #555;
+    --rule-color: #222;
+    --soft-rule:  #d0d0d0;
+    --bg-color:   #ffffff;
+    --code-bg:    #f5f3ee;
+    --link-color: #0b3d91;
+}
+
+html {
+    font-size: 11pt;             /* matches LaTeX article 11pt-ish */
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background: var(--bg-color);
+    line-height: 1.45;
+    font-feature-settings: "kern", "liga", "onum";
+    -webkit-font-feature-settings: "kern", "liga", "onum";
+    text-rendering: optimizeLegibility;
+}
+
+/* --- page geometry: emulate \geometry{margin=2.5cm} on A4 ---------------- */
+#write {
+    max-width: 16cm;             /* 21cm A4 width − 2 × 2.5cm */
+    margin: 0 auto;
+    padding: 2.5cm 0 3cm 0;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* paragraphs: pandoc style (spaced, no indent) rather than LaTeX indent */
+#write > p {
+    margin: 0 0 0.6em 0;
+}
+
+/* --- headings -- match LaTeX article \section / \subsection sizing ------- */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+    font-family: var(--body-font);
+    font-weight: bold;
+    color: var(--text-color);
+    line-height: 1.25;
+    margin: 1.6em 0 0.6em 0;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+#write h1 {
+    font-size: 1.8em;
+    margin-top: 0;
+    text-align: center;
+}
+#write h2 { font-size: 1.44em; }
+#write h3 { font-size: 1.20em; }
+#write h4 { font-size: 1.00em; font-style: italic; font-weight: bold; }
+#write h5 { font-size: 1.00em; font-weight: normal; font-style: italic; }
+#write h6 { font-size: 0.95em; font-weight: normal; font-style: italic; color: var(--muted-color); }
+
+/* title / author / date when rendered from YAML frontmatter */
+.md-toc, .md-front-matter { font-family: var(--body-font); }
+
+/* --- inline emphasis ----------------------------------------------------- */
+em, i        { font-style: italic; }
+strong, b    { font-weight: bold; }
+u            { text-decoration: none; border-bottom: 1px solid currentColor; }
+
+a, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* --- lists --------------------------------------------------------------- */
+#write ul,
+#write ol {
+    padding-left: 1.6em;
+    margin: 0.4em 0 0.8em 0;
+}
+#write li        { margin: 0.15em 0; }
+#write li > p    { margin: 0.15em 0; }
+
+/* nested-list spacing tightening (LaTeX itemize feel) */
+#write li > ul,
+#write li > ol  { margin: 0.15em 0; }
+
+/* --- blockquote -- LaTeX `quote` environment ----------------------------- */
+#write blockquote {
+    margin: 0.8em 1.5em;
+    padding: 0;
+    border: none;
+    color: var(--text-color);
+    font-style: normal;
+}
+#write blockquote p { margin: 0.4em 0; }
+
+/* --- code ---------------------------------------------------------------- */
+code, kbd, samp, pre, .md-fences, tt,
+.CodeMirror, .CodeMirror pre {
+    font-family: var(--mono-font);
+    font-size: 0.92em;
+    font-feature-settings: "liga", "calt";       /* Fira Code ligatures */
+    -webkit-font-feature-settings: "liga", "calt";
+    font-variant-ligatures: contextual;
+}
+
+/* inline code */
+#write code {
+    background: var(--code-bg);
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+}
+
+/* the fence box itself — applied ONLY to the outer container, never the
+   per-line <pre class="CodeMirror-line"> elements that Typora generates. */
+#write .md-fences,
+#write pre:not(.CodeMirror-line) {
+    background: var(--code-bg);
+    border: 1px solid var(--soft-rule);
+    border-radius: 2px;
+    padding: 0.6em 0.9em;
+    margin: 0.8em 0;
+    line-height: 1.45;
+    overflow-x: auto;
+}
+
+/* strip every trace of box styling off the per-line CodeMirror <pre>s */
+#write .md-fences pre,
+#write .md-fences pre.CodeMirror-line,
+#write .CodeMirror-line,
+#write .CodeMirror-line > span {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+#write .md-fences code { background: transparent; padding: 0; }
+#write .CodeMirror { background: transparent; }
+#write .CodeMirror-gutters { background: transparent; border: none; }
+
+/* --- horizontal rule ----------------------------------------------------- */
+#write hr {
+    border: 0;
+    border-top: 1px solid var(--soft-rule);
+    margin: 1.6em 0;
+}
+
+/* --- tables -- booktabs flavour ----------------------------------------- */
+#write table {
+    border-collapse: collapse;
+    margin: 1em auto;
+    font-size: 0.95em;
+}
+#write table thead {
+    border-top:    1.2pt solid var(--rule-color);   /* \toprule */
+    border-bottom: 0.6pt solid var(--rule-color);   /* \midrule */
+}
+#write table tbody {
+    border-bottom: 1.2pt solid var(--rule-color);   /* \bottomrule */
+}
+#write table th,
+#write table td {
+    border: none;
+    padding: 0.35em 0.9em;
+    text-align: left;
+    vertical-align: top;
+}
+#write table th { font-weight: bold; }
+
+/* --- images / figures --------------------------------------------------- */
+#write img {
+    max-width: 100%;
+    display: block;
+    margin: 0.6em auto;
+}
+#write figure        { margin: 1em 0; text-align: center; }
+#write figure figcaption,
+#write .md-image + figcaption {
+    font-size: 0.9em;
+    color: var(--muted-color);
+    margin-top: 0.3em;
+    text-align: center;
+}
+
+/* --- math (KaTeX / MathJax inside Typora) -------------------------------- */
+.md-math-block,
+.md-inline-math,
+.MathJax, .MathJax_Display,
+.katex, .katex-display {
+    font-family: var(--math-font) !important;
+}
+.katex { font-size: 1.02em; }
+.md-math-block, .katex-display {
+    margin: 0.8em 0;
+}
+
+/* footnote refs / definitions */
+.md-footnote { background: transparent; color: var(--muted-color); }
+sup.md-footnote-content { font-size: 0.8em; }
+
+/* task lists — subtle, no chrome */
+#write .task-list-item {
+    list-style-type: none;
+    margin-left: -1.2em;
+}
+#write .task-list-item input[type="checkbox"] {
+    margin-right: 0.4em;
+}
+
+/* sidebar / file tree should still be readable (Typora-side UI) */
+.sidebar, #typora-sidebar, .file-list-item, .info-panel-tab,
+.megamenu-menu, .megamenu-content {
+    font-family: var(--sans-font);
+}
+
+/* print: mostly the same as screen, but kill page-internal margins */
+@media print {
+    html { font-size: 11pt; }
+    #write {
+        max-width: 16cm;
+        margin: 0 auto;
+        padding: 0;
+    }
+    a, a:visited { color: var(--text-color); }
+}
