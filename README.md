@@ -1,45 +1,54 @@
-# Libertinus for Typora
+# Libertinus
 
-A light and dark [Typora](https://typora.io/) theme inspired by a Pandoc and XeLaTeX article set in Libertinus. Made for notes, essays, and technical writing, with a 16 cm reading measure, LaTeX-style heading sizes, booktabs-style tables, and serif fallbacks for Chinese text.
+**A Typora theme for the technical thinker.**
 
-Blockquotes use italic text with a narrow grey left border; code stays upright. Click inside a code block to edit its language in the footer below the code, without scrolling to reveal the selector.
+For the proof you’re working through, the code that makes it concrete, and the paragraph that ties it together. Libertinus gives everyday Markdown the feel of a typeset article, with the measured lines and serif typography of a LaTeX page.
 
-![Libertinus typography, blockquote, and table in Typora](docs/typography.png)
+[Download the theme](https://github.com/wei-yuhang/typora-theme-libertinus/releases/latest) · [Read the sample](sample.md) · [Install](#install)
 
-![Python code and a displayed equation in Typora](docs/code-and-math.png)
+| Libertinus | Libertinus Dark |
+| :---: | :---: |
+| ![Python and a displayed equation on the light Libertinus page](docs/code-and-math.png) | ![Python and a displayed equation on the charcoal Libertinus Dark page](docs/dark-code-and-math.png) |
 
-![Libertinus Dark typography](docs/dark-typography.png)
+## The page
 
-![Fira Code and mathematics in Libertinus Dark](docs/dark-code-and-math.png)
+Libertinus Serif and a 16 cm text measure give long paragraphs room to breathe. Headings follow the proportions of a LaTeX article, tables use booktabs-style rules, and quotations sit in italics beside a thin grey line. Code keeps its own voice in Fira Code, upright even inside a quotation. Click a fenced block to change its language in the footer below it.
+
+Choose a light page or warm charcoal with ivory text. Both keep the same typography and layout, so the document feels familiar when you switch.
+
+<details>
+<summary>See headings, quotations, and tables</summary>
+
+| Libertinus | Libertinus Dark |
+| :---: | :---: |
+| ![Light Libertinus typography with an italic quotation and a table](docs/typography.png) | ![Dark Libertinus typography with an italic quotation and a table](docs/dark-typography.png) |
+
+</details>
 
 ## Install
 
-1. Download and unzip the [latest release](https://github.com/wei-yuhang/typora-theme-libertinus/releases/latest), or download both [`libertinus.css`](libertinus.css) and [`libertinus-dark.css`](libertinus-dark.css) using GitHub’s **Download raw file** button.
-2. In Typora, open **Preferences → Appearance → Open Theme Folder** and copy **both CSS files** into that folder.
-3. Restart Typora and choose **Themes → Libertinus** or **Libertinus Dark**.
-
-Keep both CSS files together: the dark variant imports the light theme’s shared typography and layout. Only the CSS files belong in the theme folder. Open [`sample.md`](sample.md) to try headings, quotations, tables, code, math, Chinese text, lists, and footnotes.
-
-See the [Typora theme installation guide](https://theme.typora.io/doc/Install-Theme/) for platform-specific details.
+1. Download and unzip the [latest release](https://github.com/wei-yuhang/typora-theme-libertinus/releases/latest), or download [`libertinus.css`](libertinus.css) and [`libertinus-dark.css`](libertinus-dark.css) individually.
+2. In Typora, open **Settings → Appearance → Open Theme Folder**. Copy both CSS files into the folder and keep them together: Libertinus Dark shares its layout with the light theme.
+3. Restart Typora and select **Themes → Libertinus** or **Libertinus Dark**. Open [`sample.md`](sample.md) to see how it looks.
 
 ## Fonts
 
-Fonts are **not bundled**. Install Libertinus Serif and Libertinus Sans from the [official Libertinus releases](https://github.com/alerque/libertinus/releases) for the intended appearance. Open the downloaded `.otf` files with Font Book on macOS, or select them and choose **Install** on Windows, then restart Typora.
+The theme works with system fallbacks. For the look in the screenshots, install these fonts separately, then restart Typora:
 
-For Chinese text, the intended font is **思源宋体 (Source Han Serif)**. Install the Simplified Chinese edition from the [official Adobe font releases](https://github.com/adobe-fonts/source-han-serif/releases). The CSS looks for `Source Han Serif SC` / `Source Han Serif CN` and their Chinese names first, then Noto Serif CJK and system serif fallbacks if 思源宋体 is unavailable. Fonts are not downloaded automatically by the theme.
+| For | Font |
+| --- | --- |
+| Prose and headings | [Libertinus Serif](https://github.com/alerque/libertinus/releases). The same release includes Libertinus Sans for interface text. |
+| Code | [Fira Code](https://github.com/tonsky/FiraCode). JetBrains Mono and Libertinus Mono are among the fallbacks. |
+| Simplified Chinese | [思源宋体 (Source Han Serif SC)](https://github.com/adobe-fonts/source-han-serif/releases), with Noto Serif CJK and system serif fallbacks. |
 
-The theme also recognizes Libertinus Mono and Libertinus Math. Code prefers [Fira Code](https://github.com/tonsky/FiraCode) or JetBrains Mono when installed, then falls back to Libertinus Mono and system monospace fonts. The screenshots use Libertinus Serif, **Fira Code**, and **Source Han Serif SC** on macOS; other systems can look slightly different.
+The CSS also lists Libertinus Math. Typora’s math renderer controls the glyphs it draws as SVG.
 
-Math uses Typora’s configured renderer. Setting a CSS font family does not replace glyphs drawn as SVG by MathJax.
+## PDF and platform notes
 
-## Compatibility
+For white PDF pages while writing in dark mode, select **Libertinus** under **Settings → Export → PDF → Theme**. Typora controls paper size and margins. See [Typora’s PDF export guide](https://support.typora.io/Export/#theme-2).
 
-- The original light theme has been used long-term on **Windows** by the author. The new dark variant has been checked on macOS; Windows verification is still needed.
-- Checked in **Typora 1.14.15 on macOS**, including the recent code-language picker changes, narrow editor/sidebar layout, source mode, tables, math, lists, and PDF export.
-- **Linux has not been tested.**
-
-Libertinus is the light variant; **Libertinus Dark** uses a warm charcoal background, muted ivory text, and matching code, source-mode, and sidebar colors. Print content uses the light palette. For reliable white PDF page margins while editing in dark mode, choose **Libertinus** under **Settings → Export → PDF → Theme**; Typora on macOS can otherwise retain the editor’s dark background outside the printed content. See [Typora’s export settings](https://support.typora.io/Export/#theme-2). PDF page size and physical margins are controlled by Typora’s export settings; the theme’s screen layout is inspired by A4 rather than an exact LaTeX page reproduction.
+The original light theme has been used long-term on Windows by the author. Both variants were checked in Typora 1.14.15 on macOS. The dark variant still needs Windows testing, and Linux is untested.
 
 ## License
 
-The theme, sample, and screenshots are available under the [MIT License](LICENSE). Separately installed fonts retain their own licenses.
+The theme, sample, and screenshots are available under the [MIT License](LICENSE). The fonts retain their own licenses.
