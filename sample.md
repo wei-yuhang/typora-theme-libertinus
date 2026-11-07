@@ -56,6 +56,6 @@ Latin and Chinese characters can coexist in the same paragraph. Font fallbacks a
 - [x] Write the first draft.
 - [ ] Read it again tomorrow.
 
-The page is deliberately light, with no dark variant. It is designed for notes, essays, technical explanations, and reading at length.[^note]
+Choose a light page or a warm charcoal background. Both variants are designed for notes, essays, technical explanations, and reading at length.[^note]
 
-[^note]: Open this document in Typora and choose **Themes → Libertinus**. For the intended typography, install the Libertinus fonts separately.
+[^note]: Open this document in Typora and choose **Themes → Libertinus** or **Libertinus Dark**. Install Libertinus, Fira Code, and 思源宋体 separately for the intended typography.

@@ -1,0 +1,101 @@
+/* Libertinus Dark — keep this file beside libertinus.css. */
+@import "libertinus.css";
+
+/* Screen-only colors preserve the light theme's print/PDF appearance. */
+@media screen {
+    :root {
+        color-scheme: dark;
+        --bg-color: #1b1c20;
+        --text-color: #e8e3d8;
+        --muted-color: #a8a39b;
+        --rule-color: #c7c0b5;
+        --soft-rule: #4d5059;
+        --code-bg: #25272e;
+        --link-color: #9fb9ed;
+
+        --side-bar-bg-color: #17181c;
+        --control-text-color: var(--text-color);
+        --control-text-hover-color: #ffffff;
+        --window-border: 1px solid var(--soft-rule);
+        --item-hover-bg-color: #30333c;
+        --item-hover-text-color: var(--text-color);
+        --active-file-bg-color: #30333c;
+        --active-file-text-color: var(--text-color);
+        --active-file-border-color: var(--link-color);
+        --primary-color: var(--link-color);
+        --primary-btn-text-color: #1b1c20;
+        --select-text-bg-color: #3b4f70;
+        --select-text-font-color: #ffffff;
+        --search-select-bg-color: #3b4f70;
+        --search-select-text-color: #ffffff;
+        --rawblock-edit-panel-bd: var(--code-bg);
+        --md-char-color: #959ba6;
+        --meta-content-color: #91bfd6;
+        --heading-char-color: var(--muted-color);
+        --panel-border-color: var(--soft-rule);
+        --table-border-color: var(--soft-rule);
+        --color-popover-bg-color: var(--code-bg);
+        --active-toggle-btn-color: #30333c;
+    }
+
+    html { background: var(--bg-color); }
+    body { fill: currentColor; }
+    button, input, select, textarea, div.code-tooltip-content {
+        color: var(--text-color);
+    }
+
+    .CodeMirror { color: var(--text-color); }
+    .CodeMirror div.CodeMirror-cursor {
+        border-left-color: var(--text-color);
+    }
+    .CodeMirror-selected,
+    .CodeMirror-selectedtext {
+        background: var(--select-text-bg-color);
+        color: var(--select-text-font-color) !important;
+        text-shadow: none;
+    }
+    .CodeMirror-activeline-background { background: var(--code-bg); }
+    .CodeMirror-linenumber { color: var(--muted-color); }
+
+    .cm-s-inner .cm-variable,
+    .cm-s-inner .cm-property,
+    .cm-s-inner .cm-bracket { color: var(--text-color); }
+    .cm-s-inner .cm-keyword,
+    .cm-s-inner .cm-tag { color: #c9a4e8; }
+    .cm-s-inner .cm-string,
+    .cm-s-inner .cm-string-2,
+    .cm-s-inner .cm-quote,
+    .cm-s-inner .cm-positive { color: #a4c9a2; }
+    .cm-s-inner .cm-number,
+    .cm-s-inner .cm-atom { color: #dfb780; }
+    .cm-s-inner .cm-comment,
+    .cm-s-inner.cm-comment { color: #959ba6; }
+    .cm-s-inner .cm-def,
+    .cm-s-inner .cm-header { color: #e6c788; }
+    .cm-s-inner .cm-builtin,
+    .cm-s-inner .cm-variable-2,
+    .cm-s-inner .cm-variable-3,
+    .cm-s-inner .cm-attribute { color: #91bfd6; }
+    .cm-s-inner .cm-operator,
+    .cm-s-inner .cm-meta,
+    .cm-s-inner .cm-qualifier { color: #c5bce8; }
+    .cm-s-inner .cm-link { color: var(--link-color); }
+    .cm-s-inner .cm-hr { color: var(--rule-color); }
+    .cm-s-inner .cm-negative,
+    .cm-s-inner .cm-error { color: #e5a09b; }
+
+    /* Markdown source mode uses a different CodeMirror theme. */
+    .cm-s-typora-default .cm-header,
+    .cm-s-typora-default .cm-property { color: #e6c788; }
+    .cm-s-typora-default .cm-comment,
+    .cm-s-typora-default .cm-code { color: #c5bce8; }
+    .cm-s-typora-default .cm-string { color: #a4c9a2; }
+    .cm-s-typora-default .cm-atom,
+    .cm-s-typora-default .cm-number { color: #dfb780; }
+    .cm-s-typora-default .cm-link { color: var(--link-color); }
+}
+
+@media print {
+    :root { color-scheme: light; }
+    html, body { background: #ffffff !important; }
+}
