@@ -6,9 +6,13 @@ For the proof you’re working through, the code that makes it concrete, and the
 
 [Download the theme](https://github.com/wei-yuhang/typora-theme-libertinus/releases/latest) · [Read the sample](sample.md) · [Install](#install)
 
-| Libertinus | Libertinus Dark |
-| :---: | :---: |
-| ![Python and a displayed equation on the light Libertinus page](docs/code-and-math.png) | ![Python and a displayed equation on the charcoal Libertinus Dark page](docs/dark-code-and-math.png) |
+### Libertinus
+
+![Python and a displayed equation on the light Libertinus page](docs/code-and-math.png)
+
+### Libertinus Dark
+
+![Python and a displayed equation on the charcoal Libertinus Dark page](docs/dark-code-and-math.png)
 
 ## The page
 
@@ -16,14 +20,11 @@ Libertinus Serif and a 16 cm text measure give long paragraphs room to breathe. 
 
 Choose a light page or warm charcoal with ivory text. Both keep the same typography and layout, so the document feels familiar when you switch.
 
-<details>
-<summary>See headings, quotations, and tables</summary>
+### Headings, quotations, and tables
 
-| Libertinus | Libertinus Dark |
-| :---: | :---: |
-| ![Light Libertinus typography with an italic quotation and a table](docs/typography.png) | ![Dark Libertinus typography with an italic quotation and a table](docs/dark-typography.png) |
+![Light Libertinus typography with an italic quotation and a table](docs/typography.png)
 
-</details>
+![Dark Libertinus typography with an italic quotation and a table](docs/dark-typography.png)
 
 ## Install
 
