@@ -50,9 +50,9 @@ body {
 
 /* --- page geometry: emulate \geometry{margin=2.5cm} on A4 ---------------- */
 #write {
-    max-width: 16cm;             /* 21cm A4 width − 2 × 2.5cm */
+    max-width: calc(16cm + 40px); /* 16cm text measure plus screen gutters */
     margin: 0 auto;
-    padding: 2.5cm 0 3cm 0;
+    padding: 2.5cm 20px 3cm;
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
@@ -263,7 +263,7 @@ sup.md-footnote-content { font-size: 0.8em; }
 /* task lists — subtle, no chrome */
 #write .task-list-item {
     list-style-type: none;
-    margin-left: -1.2em;
+    margin-left: 0;              /* keep the positioned checkbox in the gutter */
 }
 #write .task-list-item input[type="checkbox"] {
     margin-right: 0.4em;
